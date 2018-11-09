@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "plugin:prettier/recommended", "prettier/react"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "no-use-before-define": "off",
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {},
+        "allowChildren": false
+      }
+    ]
+  }
+}

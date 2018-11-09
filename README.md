@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ÷ React Table
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Tailwind CSS](https://tailwindcss.com).
+
+Simple table component with basic pagination and page size. [Lodash](https://lodash.com/) is used to simplify certain operations and reduce code.
+
+[PostCSS](https://github.com/postcss/postcss-cli) and [PurgeCSS](https://github.com/FullHuman/purgecss) help in keeping the styles optimized for production build.
 
 ## Available Scripts
 

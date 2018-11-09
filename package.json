@@ -3,23 +3,64 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.2.6",
+    "ky": "^0.5.1",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.10.0",
+    "prop-types": "^15.6.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "react:start": "react-scripts start",
+    "react:build": "react-scripts build",
+    "start": "run-p tailwind:start react:start",
+    "build": "run-s tailwind:build react:build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "eject": "react-scripts eject",
+    "tailwind:start": "postcss src/styles/tailwind/config.scss -o src/styles/tailwind/_tailwind.scss -w",
+    "tailwind:build": "cross-env NODE_ENV=production postcss src/styles/tailwind/config.scss -o src/styles/tailwind/_tailwind.scss"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.1.0",
+    "@types/classnames": "^2.2.6",
+    "@types/lodash": "^4.14.118",
+    "@types/prop-types": "^15.5.6",
+    "@types/react": "^16.7.1",
+    "@types/react-dom": "^16.0.9",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.0",
+    "husky": "^1.1.3",
+    "lint-staged": "^8.0.4",
+    "npm-run-all": "^4.1.3",
+    "postcss-cli": "^6.0.1",
+    "prettier": "^1.15.1",
+    "tailwindcss": "^0.7.2",
+    "tailwindcss-tables": "^0.2.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }
